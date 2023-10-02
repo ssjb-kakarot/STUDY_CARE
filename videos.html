@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style for the video container */
+        .video-container {
+            width: 560px;
+            height: 315px;
+            margin: 10px auto;
+            background: #000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style for the video iframe */
+        .video-iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Style for the buttons */
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background: #FF0000;
+            color: #FFF;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #FF5555;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <iframe class="video-iframe" src="https://www.youtube.com/embed/LKp7RdseSaU?si=P485FQXtVmWJfTBb" allowfullscreen autoplay></iframe>
+    </div>
+
+    <div class="video-container">
+        <iframe class="video-iframe" src="https://www.youtube.com/embed/aEEsCWW39-Y?si=QNnQsS7hXV7RQUAU" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+        <iframe class="video-iframe" src="https://www.youtube.com/embed/aEEsCWW39-Y?si=QNnQsS7hXV7RQUAU" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+        <iframe class="video-iframe" src="https://www.youtube.com/embed/aEEsCWW39-Y?si=QNnQsS7hXV7RQUAU" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+        <iframe class="video-iframe" src="https://www.youtube.com/embed/YMiFnWl3sjg?si=KbTPqtsn2fALGuHs" allowfullscreen></iframe>
+    </div>
+
+    <button onclick="previousVideo()">Previous Video</button>
+    <button onclick="nextVideo()">Next Video</button>
+
+    <script>
+        var videoContainers = document.querySelectorAll('.video-container');
+        var currentVideoIndex = 0;
+
+        function showVideo(index) {
+            videoContainers.forEach(function (container, i) {
+                if (i === index) {
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                }
+            });
+            currentVideoIndex = index;
+        }
+
+        function nextVideo() {
+            if (currentVideoIndex < videoContainers.length - 1) {
+                showVideo(currentVideoIndex + 1);
+            }
+        }
+
+        function previousVideo() {
+            if (currentVideoIndex > 0) {
+                showVideo(currentVideoIndex - 1);
+            }
+        }
+
+        showVideo(currentVideoIndex);
+    </script>
+</body>
+</html>
